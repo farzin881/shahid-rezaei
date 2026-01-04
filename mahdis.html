@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<title>پخش صدا</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #0b0f14;
+  --card: #111827;
+  --border: rgba(255,255,255,0.08);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #38bdf8; /* icy blue */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at top, #0f172a 0%, transparent 60%),
+    linear-gradient(180deg, #020617, #020617);
+  font-family: 'Inter', system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+}
+
+.card {
+  width: min(420px, 92%);
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.01)
+  );
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 26px 32px;
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.55),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+audio {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  filter: drop-shadow(0 0 12px rgba(56,189,248,0.15));
+}
+
+/* WebKit audio styling */
+audio::-webkit-media-controls-panel {
+  background-color: #020617;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-mute-button {
+  filter: invert(1);
+}
+
+audio::-webkit-media-controls-timeline {
+  filter: invert(1);
+}
+
+.footer {
+  margin-top: 18px;
+  font-size: 11px;
+  text-align: center;
+  color: var(--muted);
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="title">Winter Voice</div>
+  <div class="subtitle">cold / minimal / static audio</div>
+
+  <audio controls autoplay>
+    <source src="mahdis.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="footer">
+    hosted as a static page
+  </div>
+</div>
+
+</body>
+</html>
