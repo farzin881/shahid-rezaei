@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>تبریک جشن تکلیف</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    color: #2d3748;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  /* بادکنک‌های متحرک */
+  .balloon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .balloon {
+    position: absolute;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: float 15s infinite ease-in-out;
+    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 16px;
+    padding: 10px 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+  }
+
+  .balloon::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.5);
+  }
+
+  .balloon-name {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    word-wrap: break-word;
+    max-width: 90%;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(100vh) translateX(0) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.9;
+    }
+    90% {
+      opacity: 0.9;
+    }
+    100% {
+      transform: translateY(-100px) translateX(30px) rotate(10deg);
+      opacity: 0;
+    }
+  }
+
+  /* محتوای اصلی */
+  .content {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    padding: 50px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    animation: fadeInUp 1s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .school-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: #667eea;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .congratulations {
+    font-size: 1.3rem;
+    line-height: 2;
+    color: #4a5568;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .congratulations .highlight {
+    color: #764ba2;
+    font-weight: 700;
+    font-size: 1.4rem;
+  }
+
+  .audio-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+  }
+
+  audio {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    outline: none;
+  }
+
+  audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+  }
+
+  .class-info {
+    margin-top: 25px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .class-info-item {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #4a5568;
+    line-height: 1.8;
+  }
+
+  .class-info-item strong {
+    color: #667eea;
+    font-weight: 700;
+    margin-left: 8px;
+  }
+
+  .class-info-item .icon {
+    margin-left: 5px;
+    font-size: 1.2rem;
+  }
+
+  .decoration {
+    position: absolute;
+    font-size: 40px;
+    opacity: 0.3;
+    animation: rotate 20s infinite linear;
+  }
+
+  .decoration-1 {
+    top: 20px;
+    right: 20px;
+  }
+
+  .decoration-2 {
+    bottom: 20px;
+    left: 20px;
+    animation-direction: reverse;
+  }
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+    
+    .congratulations {
+      font-size: 1.1rem;
+    }
+
+    .content {
+      padding: 30px 25px;
+    }
+
+    .school-icon {
+      font-size: 60px;
+    }
+  }
+</style>
+</head>
+<body>
+  <!-- بادکنک‌های متحرک -->
+  <div class="balloon-container" id="balloonContainer"></div>
+
+  <!-- محتوای اصلی -->
+  <div class="content">
+    <div class="school-icon">🎓</div>
+    <h1>تبریک جشن تکلیف</h1>
+    <div class="congratulations">
+      <p>🎉 <span class="highlight">تبریک</span> می‌گوییم به شما عزیز! 🎉</p>
+      <p>این روز بزرگ و مبارک را به شما و خانواده محترمتان تبریک عرض می‌کنیم.</p>
+      <p>امیدواریم در این مسیر پر از برکت و معنویت، همیشه موفق و سربلند باشید.</p>
+      <p>خداوند متعال شما را در این راه یاری کند. 🌟</p>
+    </div>
+
+    <div class="audio-container">
+      <audio controls>
+        <source src="zeinab.mp3" type="audio/mpeg">
+        مرورگر شما این فایل صوتی را پشتیبانی نمی‌کند.
+      </audio>
+    </div>
+
+    <div class="class-info">
+      <div class="class-info-item">
+        <span class="icon">📚</span>
+        <strong>کلاس:</strong> سوم ابتدایی
+      </div>
+      <div class="class-info-item">
+        <span class="icon">🏫</span>
+        <strong>مدرسه:</strong> شهید رضایی
+      </div>
+      <div class="class-info-item">
+        <span class="icon">👩‍🏫</span>
+        <strong>آموزگار:</strong> فریبا شجاعی
+      </div>
+    </div>
+  </div>
+
+  <div class="decoration decoration-1">🎈</div>
+  <div class="decoration decoration-2">🎈</div>
+
+  <script>
+    const classmateNames = [
+      'محمدجواد', 'زینب', 'اوا', 'حدیث', 'مهسا', 'بهار', 'مهدیس', 'نسرین',
+      'عباس', 'ساسان', 'محمد', 'بردیا',
+    ];
+
+    // رنگ‌های بادکنک
+    const balloonColors = [
+      'linear-gradient(135deg, #ff6b6b, #ee5a6f)',
+      'linear-gradient(135deg, #4ecdc4, #44a08d)',
+      'linear-gradient(135deg, #ffe66d, #ffd93d)',
+      'linear-gradient(135deg, #a8e6cf, #88d8a3)',
+      'linear-gradient(135deg, #ff9ff3, #f368e0)',
+      'linear-gradient(135deg, #74b9ff, #0984e3)',
+      'linear-gradient(135deg, #fd79a8, #e84393)',
+      'linear-gradient(135deg, #fdcb6e, #e17055)',
+      'linear-gradient(135deg, #a29bfe, #6c5ce7)',
+      'linear-gradient(135deg, #00b894, #00cec9)'
+    ];
+
+    function createBalloon(name) {
+      const balloon = document.createElement('div');
+      balloon.className = 'balloon';
+      
+      // محاسبه سایز بادکنک بر اساس طول اسم
+      const nameLength = name.length;
+      const baseWidth = 60;
+      const baseHeight = 80;
+      const widthPerChar = 15; // عرض اضافی برای هر کاراکتر
+      const heightPerChar = 10; // ارتفاع اضافی برای هر کاراکتر
+      
+      const width = Math.max(baseWidth, nameLength * widthPerChar + 20);
+      const height = Math.max(baseHeight, baseHeight + (nameLength > 3 ? (nameLength - 3) * heightPerChar : 0));
+      
+      balloon.style.width = width + 'px';
+      balloon.style.height = height + 'px';
+      balloon.style.background = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+      
+      // موقعیت رندوم در عرض صفحه
+      const leftPosition = Math.random() * 85 + 5; // بین 5% تا 90%
+      balloon.style.left = leftPosition + '%';
+      
+      // تاخیر رندوم برای انیمیشن
+      const delay = Math.random() * 5;
+      balloon.style.animationDelay = delay + 's';
+      
+      // اضافه کردن اسم به بادکنک
+      const nameElement = document.createElement('div');
+      nameElement.className = 'balloon-name';
+      nameElement.textContent = name;
+      balloon.appendChild(nameElement);
+      
+      return balloon;
+    }
+
+    function shuffleArray(array) {
+      const shuffled = [...array];
+      for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+      }
+      return shuffled;
+    }
+
+    function initBalloons() {
+      const container = document.getElementById('balloonContainer');
+      const shuffledNames = shuffleArray(classmateNames);
+      
+      // ایجاد 10 بادکنک با اسامی رندوم
+      const numberOfBalloons = Math.min(10, shuffledNames.length);
+      
+      for (let i = 0; i < numberOfBalloons; i++) {
+        const balloon = createBalloon(shuffledNames[i]);
+        container.appendChild(balloon);
+      }
+    }
+
+    // اجرای کد بعد از لود شدن صفحه
+    window.addEventListener('DOMContentLoaded', initBalloons);
+  </script>
+</body>
+</html>
