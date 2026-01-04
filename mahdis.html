@@ -4,97 +4,31 @@
 <meta charset="UTF-8">
 <title>پخش صدا</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
-
-:root {
-  --bg: #0b0f14;
-  --card: #111827;
-  --border: rgba(255,255,255,0.08);
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --accent: #38bdf8;
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background:
-    radial-gradient(1200px 600px at top, #0f172a 0%, transparent 60%),
-    linear-gradient(180deg, #020617, #020617);
-  font-family: 'Inter', system-ui, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text);
-}
-
-.card {
-  width: min(420px, 92%);
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 28px 26px 32px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05);
-  text-align: center;
-}
-
-.title { font-size: 18px; font-weight: 500; margin-bottom: 6px; }
-.subtitle { font-size: 13px; color: var(--muted); margin-bottom: 18px; }
-
-button {
-  background: var(--accent);
-  color: var(--bg);
-  border: none;
-  padding: 12px 24px;
-  font-size: 14px;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-button:hover { filter: brightness(1.2); }
-
-audio {
-  width: 100%;
-  max-width: 400px;
-  margin-top: 20px;
-  display: none; /* hide default player until click */
-}
-
-.footer {
-  margin-top: 18px;
-  font-size: 11px;
-  color: var(--muted);
-  opacity: 0.6;
-}
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #0b0f14;
+    color: #e5e7eb;
+    font-family: 'Arial', sans-serif;
+    flex-direction: column;
+  }
+  audio {
+    width: 90%;
+    max-width: 400px;
+    margin-top: 20px;
+  }
 </style>
 </head>
-
 <body>
-<div class="card">
-  <div class="title">Winter Voice</div>
-  <div class="subtitle">cold / minimal / static audio</div>
 
-  <button id="playBtn">▶️ پخش فایل صوتی</button>
-  <audio id="audio" src="mahdis.mp3" type="audio/mpeg"></audio>
-
-  <div class="footer">Hosted as a static page</div>
-</div>
-
-<script>
-const playBtn = document.getElementById('playBtn');
-const audio = document.getElementById('audio');
-
-playBtn.addEventListener('click', () => {
-  audio.style.display = 'block'; // show player
-  audio.play();                  // play audio
-  playBtn.style.display = 'none'; // hide button after first click
-});
-</script>
+<h2>پخش فایل صوتی</h2>
+<audio controls>
+  <source src="mahdis.mp3" type="audio/mpeg">
+  مرورگر شما این فایل صوتی را پشتیبانی نمی‌کند.
+</audio>
 
 </body>
 </html>
